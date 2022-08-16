@@ -1,13 +1,13 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../change_password/change_password_widget.dart';
+import '../create_account/create_account_widget.dart';
 import '../edit_user_profile/edit_user_profile_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../login/login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -477,7 +477,7 @@ class _EditSettingsWidgetState extends State<EditSettingsWidget>
                         await Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => LoginWidget(),
+                            builder: (context) => CreateAccountWidget(),
                           ),
                           (r) => false,
                         );

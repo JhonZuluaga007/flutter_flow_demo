@@ -70,9 +70,8 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
           child: Center(
             child: Builder(
               builder: (context) => Image.asset(
-                'assets/images/Sniff_0.0_Splash@2x.png',
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 1,
+                'assets/images/WhatsApp_Image_2022-08-16_at_2.21.35_PM.jpeg',
+                width: MediaQuery.of(context).size.width * 0.7,
                 fit: BoxFit.cover,
               ),
             ),
@@ -82,10 +81,10 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
 }
 
 final pageBuilderMap = <String, Future<Widget> Function(Map<String, dynamic>)>{
-  'login': (data) async => LoginWidget(),
   'createAccount': (data) async => CreateAccountWidget(),
-  'createDogProfile': (data) async => CreateDogProfileWidget(),
   'createYourProfile': (data) async => CreateYourProfileWidget(),
+  'createDogProfile': (data) async => CreateDogProfileWidget(),
+  'login': (data) async => LoginWidget(),
   'forgotPassword': (data) async => ForgotPasswordWidget(),
   'profilePage': (data) async => NavBarPage(initialPage: 'profilePage'),
   'createStory': (data) async => CreateStoryWidget(),
@@ -120,6 +119,7 @@ final pageBuilderMap = <String, Future<Widget> Function(Map<String, dynamic>)>{
         chat: await getDocumentParameter(data, 'chat', ChatsRecord.serializer),
       ),
   'createGroupChat': (data) async => CreateGroupChatWidget(),
+  'blank': (data) async => BlankWidget(),
 };
 
 bool hasMatchingParameters(Map<String, dynamic> data, Set<String> params) =>

@@ -1,5 +1,5 @@
 import '../auth/auth_util.dart';
-import '../create_dog_profile/create_dog_profile_widget.dart';
+import '../edit_user_profile/edit_user_profile_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -42,25 +42,27 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: CachedNetworkImageProvider(
-              'https://images.unsplash.com/photo-1593620659530-7f98c53de278?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjN8fGRvZ3N8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+              '',
             ),
           ),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Row(
               mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Align(
                   alignment: AlignmentDirectional(0, 0),
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(24, 56, 0, 0),
                     child: Image.asset(
-                      'assets/images/logoSniff@2x.png',
+                      'assets/images/WhatsApp_Image_2022-08-16_at_2.21.35_PM.jpeg',
                       width: 140,
-                      height: 40,
+                      height: MediaQuery.of(context).size.height * 0.1,
                       fit: BoxFit.fitWidth,
                     ),
                   ),
@@ -94,7 +96,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Welcome,',
+                            'Bienvenido',
                             style: FlutterFlowTheme.of(context).title1,
                           ),
                         ],
@@ -112,7 +114,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Create your account below, or',
+                                'Crea tu cuenta, o puedes ir a',
                                 style: FlutterFlowTheme.of(context).bodyText1,
                               ),
                               FFButtonWidget(
@@ -175,7 +177,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                             controller: emailController,
                             obscureText: false,
                             decoration: InputDecoration(
-                              labelText: 'Your email...',
+                              labelText: 'Tu email...',
                               labelStyle:
                                   FlutterFlowTheme.of(context).bodyText2,
                               enabledBorder: OutlineInputBorder(
@@ -221,7 +223,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                             controller: passwordController,
                             obscureText: !passwordVisibility,
                             decoration: InputDecoration(
-                              labelText: 'Password',
+                              labelText: 'Contraseña',
                               labelStyle:
                                   FlutterFlowTheme.of(context).bodyText2,
                               enabledBorder: OutlineInputBorder(
@@ -281,16 +283,16 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                   return;
                                 }
 
-                                await Navigator.pushAndRemoveUntil(
+                                await sendEmailVerification();
+                                await Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        CreateDogProfileWidget(),
+                                        EditUserProfileWidget(),
                                   ),
-                                  (r) => false,
                                 );
                               },
-                              text: 'Create Account',
+                              text: 'Crear cuenta',
                               options: FFButtonOptions(
                                 width: 170,
                                 height: 50,
@@ -328,7 +330,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                             ),
                           );
                         },
-                        text: 'Continue as guest',
+                        text: 'Continuar como invitado',
                         options: FFButtonOptions(
                           width: 200,
                           height: 40,

@@ -1,7 +1,7 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'auth/firebase_user_provider.dart';
 import 'auth/auth_util.dart';
 import 'backend/push_notifications/push_notifications_util.dart';
@@ -57,7 +57,8 @@ class _MyAppState extends State<MyApp> {
     super.dispose();
   }
 
-  void setLocale(Locale value) => setState(() => _locale = value);
+  void setLocale(String language) =>
+      setState(() => _locale = createLocale(language));
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
         FlutterFlowTheme.saveThemeMode(mode);
@@ -84,9 +85,8 @@ class _MyAppState extends State<MyApp> {
               child: Center(
                 child: Builder(
                   builder: (context) => Image.asset(
-                    'assets/images/Sniff_0.0_Splash@2x.png',
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 1,
+                    'assets/images/WhatsApp_Image_2022-08-16_at_2.21.35_PM.jpeg',
+                    width: MediaQuery.of(context).size.width * 0.7,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -94,7 +94,7 @@ class _MyAppState extends State<MyApp> {
             )
           : currentUser!.loggedIn
               ? PushNotificationsHandler(child: NavBarPage())
-              : LoginWidget(),
+              : CreateAccountWidget(),
     );
   }
 }
