@@ -9,6 +9,7 @@ import 'dogs_record.dart';
 import 'friends_record.dart';
 import 'chats_record.dart';
 import 'chat_messages_record.dart';
+import 'messages_record.dart';
 
 import 'index.dart';
 
@@ -28,6 +29,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   FriendsRecord,
   ChatsRecord,
   ChatMessagesRecord,
+  MessagesRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
